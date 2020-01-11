@@ -3,7 +3,7 @@ use crate::{
     models::user::User,
     schema::login_history::{self, dsl::*},
 };
-use chrono::{DateTime, Utc};
+use chrono::{DateTime, Utc,NaiveDateTime};
 use diesel::prelude::*;
 
 #[derive(Identifiable, Associations, Queryable)]
@@ -19,7 +19,8 @@ pub struct LoginHistory {
 #[table_name = "login_history"]
 pub struct LoginHistoryInsertableDTO {
     pub user_id: i32,
-    pub login_timestamp: DateTime<Utc>,
+    // pub login_timestamp: DateTime<Utc>,
+    pub login_timestamp: NaiveDateTime,
 }
 
 impl LoginHistory {
@@ -27,7 +28,7 @@ impl LoginHistory {
         if let Ok(user) = User::find_user_by_username(un, conn) {
             Some(LoginHistoryInsertableDTO {
                 user_id: user.id,
-                login_timestamp: Utc::now(),
+                login_timestamp: Utc::now().naive_local(),
             })
         } else {
             None

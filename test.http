@@ -1,0 +1,24 @@
+### ping
+GET http://localhost:8000/api/ping
+
+
+
+### Signup 
+POST http://localhost:8000/api/auth/signup
+Content-Type: application/json
+
+{
+    "username": "zxk7516",
+    "email": "zxk7516@foxmail.com",
+    "password": "111111"
+}
+
+### login 
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "username_or_email": "zxk7516",
+    "email": "zxk7516@foxmail.com",
+    "password": "111111"
+}

@@ -24,7 +24,7 @@ time = "0.2.1"
 
 [dependencies.diesel]
 version = "1.4.3"
-features = ["postgres", "r2d2", "chrono"]
+features = ["r2d2", "chrono", "mysql"]
 
 [dependencies.chrono]
 version = "0.4.10"
